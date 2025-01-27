@@ -5,6 +5,7 @@ import "../responsive.css";
 import AccordianGroup from "./AccordianGroup";
 import CircularChat from "./CircularChat";
 import { useTranslation } from "react-i18next";
+import { FaTelegram } from "react-icons/fa";
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -996,11 +997,11 @@ const MainPage = () => {
             style={{ textAlign: "center", justifyContent: "center" }}
           >
             <a
-              href="https://t.me/+oNLtgu5xw51kMzRh"
+              href="https://t.me/CharlieUnicornaiOfficial"
               target="_blank"
               rel="noreferrer"
             >
-              <img src="./telegram.png" alt="" className="icon" />
+              <FaTelegram className="lg:w-7 lg:h-7 w-5 h-5 text-white/80 transition-all duration-300 ease-in-out hover:scale-110" />
             </a>
           </div>
         </div>
