@@ -10,13 +10,6 @@ import { FaTelegram } from "react-icons/fa";
 const MainPage = () => {
   const { t } = useTranslation();
 
-  const downloadWhitepaper = () => {
-    const link = document.createElement("a");
-    link.href = "/Charlie Unicorn AI Whitepaper.pdf";
-    link.download = "charlie_unicorn_ai_whitepaper.pdf";
-    link.click();
-  };
-
   const logosWithText = [
     { logo: "logo (2).png", text: "MARKETPLACE" },
     { logo: "logo (2).png", text: "MULTICHAIN" },
@@ -24,16 +17,6 @@ const MainPage = () => {
     { logo: "logo (2).png", text: "LAUNCHPAD" },
     { logo: "logo (2).png", text: "PC GAME" },
   ];
-
-  const presalesite = () => {
-    window.location.href = "https://charlieunicornai-sale.eu/";
-  };
-
-  const nftsite = () => {
-    // Replace '/CharlieWhitepaper.pdf' with your actual URL
-    window.location.href =
-      "https://pro.opensea.io/collection/charlie-unicoin/activity?showMintModal=true";
-  };
 
   const completedDevelopmentSlides = [
     <div className="relative clip w-full h-[300px] bg-gradient">
@@ -403,27 +386,32 @@ const MainPage = () => {
       name: t("ceoName"),
       role: "CEO",
       photo: "ceo.jpg",
-      flag: "poland_flag.svg",
+      flag: "pl.svg",
       linkedin:
         "https://pl.linkedin.com/in/%C5%82ukasz-szymborski-8bab38205?utm_source=share&utm_medium=member_mweb&utm_campaign=share_via&utm_content=profile",
     },
-  ];
-
-  const developers = [
     {
-      name: "Arek",
+      name: "Mateusz Czylok",
+      role: "Programmer & Manager",
+      photo: "pm1.jpg",
+      flag: "pl.svg",
     },
     {
-      name: "Mati",
+      name: "Arkadiusz Gasewicz",
+      role: "Blockchain Developer",
+      photo: "pm2.jpg",
+      flag: "pl.svg",
+    },
+    {
+      name: "Judy",
+      role: "Sr. Frontend Engineer",
+      photo: "judy.jpg",
+      flag: "uk.svg",
     },
     {
       name: "Pah",
-    },
-    {
-      name: "Vlad",
-    },
-    {
-      name: "Juri",
+      role: "Blockchain Developer",
+      photo: "pah.jpg",
     },
   ];
 
@@ -667,17 +655,17 @@ const MainPage = () => {
                 className="footer-icons mt-8"
                 style={{ textAlign: "center", justifyContent: "center" }}
               >
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="#">
                   <img src="/Apple_Store_logo.svg" alt="" className="icon" />
                 </a>{" "}
                 <a
-                  href="https://t.me/+oNLtgu5xw51kMzRh"
+                  href="https://t.me/CharlieUnicornaiOfficial"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <img src="/telegramlogo.png" alt="" className="icon" />
                 </a>
-                <a href="#" target="_blank" rel="noreferrer">
+                <a href="#">
                   <img src="/playstore.png" alt="" className="icon" />
                 </a>
               </div>
@@ -706,7 +694,11 @@ const MainPage = () => {
               </p>
               <p className="text-white/80 text-sm md:text-base mt-8">
                 {t("revolution-des3")}
-                <a href="https://t.me/CharliegameBot" target="_blank">
+                <a
+                  href="https://t.me/CharliegameBot"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="font-semibold gradient-text text-base gradient-underline">
                     @Charliegamebot {`(https://t.me/CharliegameBot)`}
                   </span>
@@ -1013,11 +1005,11 @@ const MainPage = () => {
           <span className="text-white font-semibold text-2xl">{t("TEAM")}</span>
         </div>
         {/* Members Section */}
-        <div className="flex flex-col md:flex-row gap-10 items-center w-[83%] justify-between mx-auto mt-8">
+        <div className="flex flex-col md:grid md:grid-cols-5 gap-10 items-center w-[83%] justify-between mx-auto mt-8">
           {members.map((member, index) => (
             <div
               key={index}
-              className="relative member w-[360px] clip bg-gradient h-[360px]"
+              className="relative member clip bg-gradient h-[360px]"
             >
               <div className="absolute clip bg-[#1C1C1C] inset-[1px] flex flex-col items-center justify-center">
                 <img
@@ -1033,40 +1025,25 @@ const MainPage = () => {
                 </p>
                 <div className="flex items-center justify-center mt-2">
                   {member.linkedin && (
-                    <Link to={member.linkedin}>
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img src="linkedin.svg" className="w-5 h-5" />
-                    </Link>
+                    </a>
                   )}
-                  <img
-                    src={member.flag}
-                    alt={member.name}
-                    className={`w-8 h-4 ${member.linkedin && "ml-4"}`}
-                  />
+                  {member.flag && (
+                    <img
+                      src={`/flags/${member.flag}`}
+                      alt={member.name}
+                      className={`w-6 ${member.linkedin && "ml-4"}`}
+                    />
+                  )}
                 </div>
               </div>
             </div>
           ))}
-          <div className="relative bg-gradient h-[360px] member w-[80%] clip">
-            <div className="absolute clip bg-[#1C1C1C] inset-[1px] flex flex-col items-center justify-center p-8 z-50">
-              <h1 className="gradient-text font-semibold text-md mb-4">
-                {t("ourDevelopers")}
-              </h1>
-              {developers.map((dev, index) => (
-                <div
-                  className={`relative bg-gradient [clip-path:polygon(0%_0.9em,_0.9em_0%,_100%_0%,_100%_calc(100%_-_0.9em),_calc(100%_-_0.9em)_100%,_0_100%)] h-[50px] w-full ${
-                    index > 0 && "mt-4"
-                  }`}
-                  key={index}
-                >
-                  <div className="absolute bg-[#1C1C1C] opacity-90 [clip-path:polygon(0%_0.9em,_0.9em_0%,_100%_0%,_100%_calc(100%_-_0.9em),_calc(100%_-_0.9em)_100%,_0_100%)] inset-[1px] flex items-center justify-center">
-                    <h1 className="gradient-text font-semibold text-sm lg:text-lg">
-                      {dev.name}
-                    </h1>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </>
